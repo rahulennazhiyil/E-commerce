@@ -1,0 +1,55 @@
+        <!-- Section-->
+        <div class="container-fluid">
+            <div class="container d-flex">
+                <div class="p-2 ms-2 mt-4 border" style="border-radius:10px;">
+                    <a style="text-decoration:none;" (click)="filter('')">
+                        <img style="height: 200px; width:200px ; border-radius:10px;" class="p-2" src="https://i.postimg.cc/mrQws07T/pexels-suzy-hazelwood-2536965.jpg" alt="">
+                        <h6 style="text-align:center;  color: black;">All Products</h6>
+                    </a>
+                </div>
+                <div class="p-2 ms-2 mt-4 border" style="border-radius:10px;">
+                    <a style="text-decoration:none;" (click)="filter(2)">
+                        <img style="height: 200px; width:200px ; border-radius:10px;" class="p-2" src="https://i.postimg.cc/YSMHMBT3/pexels-claudia-schmalz-6107680.jpg" alt="">
+                        <h6 style="text-align:center;  color: black;">Fashion</h6>
+                    </a>
+                </div>
+                <div class="p-2 ms-2 mt-4 border" style="border-radius:10px;">
+                    <a style="text-decoration:none;" (click)="filter(1)">
+                        <img style="height: 200px; width:200px ; border-radius:10px;" class="p-2" src="https://i.postimg.cc/FHK6Zstw/pexels-pixabay-356056.jpg" alt="">
+                        <h6 style="text-align:center;  color: black;">Electronics</h6>
+                    </a>
+                </div>
+                <div class="p-2 ms-2 mt-4 border" style="border-radius:10px;">
+                    <a style="text-decoration:none;" (click)="filter(3)">
+                        <img style="height: 200px; width:200px ; border-radius:10px;" class="p-2" src="https://i.postimg.cc/ZqBDG75c/pexels-marta-branco-1453008.jpg" alt="">
+                        <h6 style="text-align:center;  color: black;">Jwellery</h6>
+                    </a>
+                </div>
+                
+        </div>
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    <div *ngFor="let product of filterCategory | filter:searchkey : 'productName'" class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <img style="height:350px" class="card-img-top" src="{{product.productImg}}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{product.productName}}</h5>
+                                    <!-- Product price-->
+                                    ₹{{product.price}}
+                                    
+                                </div>
+                            </div>
+                            <!-- Product actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="products/view-product/{{product.id}}">View options</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </section>
