@@ -10,11 +10,29 @@ export class ProductService {
 
   search= new BehaviorSubject("")
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private http:HttpClient) { }
 
   viewAllproduct(){
     const baseurl='http://localhost:3000/products'
-    return this.httpClient.get(baseurl)
+    return this.http.get(baseurl)
   }
 
+  viewproduct(productid:any){
+    const baseurl='http://localhost:3000/products/'+productid
+    return this.http.get(baseurl)
+  }
+  deleteproduct(productid:any){
+    const baseurl='http://localhost:3000/products/'+productid
+    return this.http.delete(baseurl)
+  }
+
+  addproduct(productData:any){
+    const baseurl='http://localhost:3000/products/'
+    return this.http.post(baseurl,productData)
+  }
+  editproduct(productid:any,productData:any){
+    const baseurl='http://localhost:3000/products/'+productid
+    return this.http.put(baseurl,productData)
+
+}
 }
